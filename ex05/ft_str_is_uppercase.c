@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 09:19:46 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/01 12:05:53 by loculy           ###   ########.fr       */
+/*   Created: 2022/09/02 10:51:17 by loculy            #+#    #+#             */
+/*   Updated: 2022/09/02 10:53:41 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int	ft_str_is_uppercase(char *str)
 {
-	write(1, &c, 1);
-}
+	int		alpha;
+	int		i;
+	char	a;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
+	alpha = 1;
+	i = 0;
+	while (str[i])
 	{
-		write(1, "-2147483648", 11);
-	}
-	else
-	{
-		if (nb < 0)
+		a = str[i];
+		if (!(a >= 'A' && a <= 'Z'))
 		{
-			ft_putchar('-');
-			nb = -nb;
+			alpha = 0;
 		}
-		if (nb > 9)
-		{
-			ft_putnbr(nb / 10);
-		}	
-		ft_putchar(nb % 10 + '0');
+		i++;
 	}
+	return (alpha);
 }

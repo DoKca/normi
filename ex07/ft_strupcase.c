@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 09:15:55 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/01 10:57:06 by loculy           ###   ########.fr       */
+/*   Created: 2022/09/02 12:23:29 by loculy            #+#    #+#             */
+/*   Updated: 2022/09/02 12:39:52 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_reverse_alphabet(void)
+char	*ft_strupcase(char *str)
 {
-	write(1, "zyxwvutsrqponmlkjihgfedcba", 26);
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 97 && str[i] <= 122)
+		{
+			str[i] = str[i] - 32;
+		}
+		i++;
+	}
+	return (str);
 }

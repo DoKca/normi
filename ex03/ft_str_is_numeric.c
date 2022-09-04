@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 09:31:20 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/01 11:07:23 by loculy           ###   ########.fr       */
+/*   Created: 2022/09/02 10:38:09 by loculy            #+#    #+#             */
+/*   Updated: 2022/09/02 10:45:28 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_is_negative(int n)
+int	ft_str_is_numeric(char *str)
 {
-	if (n >= 0)
+	int		alpha;
+	int		i;
+	char	a;
+
+	alpha = 1;
+	i = 0;
+	while (str[i])
 	{
-		write(1, "P", 1);
+		a = str[i];
+		if (!(a >= '0' && a <= '9'))
+		{
+			alpha = 0;
+		}
+		i++;
 	}
-	else
-	{
-		write(1, "N", 1);
-	}
+	return (alpha);
 }

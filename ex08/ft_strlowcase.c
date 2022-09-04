@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loculy <loculy@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/01 09:15:07 by loculy            #+#    #+#             */
-/*   Updated: 2022/09/01 10:48:59 by loculy           ###   ########.fr       */
+/*   Created: 2022/09/02 12:47:29 by loculy            #+#    #+#             */
+/*   Updated: 2022/09/02 12:50:45 by loculy           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_alphabet(void)
+char	*ft_strlowcase(char *str)
 {
-	write(1, "abcdefghijklmnopqrstuvwxyz", 26);
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] >= 65 && str[i] <= 90)
+		{
+			str[i] = str[i] + 32;
+		}
+		i++;
+	}
+	return (str);
 }
